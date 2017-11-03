@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Douyu CT Auto Booster
 // @namespace    https://sparanoid.com/work/douyu-ct-auto-booster/
-// @version      1.0.1
+// @version      1.0.2
 // @description  Auto start China Telecom upload boosting service
 // @author       Tunghsiao Liu
 // @include      *://*.douyu.com/*/*
@@ -38,6 +38,9 @@ window.addEventListener('load', function(e) {
     if (text === '启用服务') {
       console.log('Douyu CT Auto Booster not enabled, activating...');
       eventFire(el, 'click');
+      setTimeout(function() {
+        location.reload();
+      }, 1000 * 60 * reloadInterval);
     } else {
       console.log('Douyu CT Auto Booster enabled, refreshing page in ' + reloadInterval + ' mins...');
 
